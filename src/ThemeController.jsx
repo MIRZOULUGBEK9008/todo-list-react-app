@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
+
 function ThemeController() {
   const themes = [
     "default",
@@ -35,6 +36,11 @@ function ThemeController() {
     "nord",
     "sunset",
   ];
+
+  function handleTheme(theme) {
+    localStorage.setItem("theme", theme);
+  }
+
   return (
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn m-1">
@@ -51,7 +57,7 @@ function ThemeController() {
       </div>
       <ul
         tabIndex={0}
-        className="dropdown-content bg-base-300 rounded-box z-[1] h-[260px] w-52 overflow-y-auto p-2 shadow-2xl"
+        className="dropdown-content z-[1] h-[260px] w-52 overflow-y-auto rounded-box bg-base-300 p-2 shadow-2xl"
       >
         {themes.map((theme) => {
           const id = uuidv4();
@@ -59,8 +65,11 @@ function ThemeController() {
             <li key={id}>
               <input
                 type="radio"
+                onChange={(e) => {
+                  handleTheme(e.target.value);
+                }}
                 name="theme-dropdown"
-                className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                className="theme-controller btn btn-ghost btn-sm btn-block justify-start"
                 aria-label={theme}
                 value={theme}
               />

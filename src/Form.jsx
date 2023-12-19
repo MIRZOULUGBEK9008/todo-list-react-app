@@ -16,7 +16,7 @@ function Form({ setTodos, todos }) {
     e.target.reset();
   }
   return (
-    <form onSubmit={(e) => handleSubmit(e)}>
+    <form className="pb-8" onSubmit={(e) => handleSubmit(e)}>
       <TodoInput />
     </form>
   );
