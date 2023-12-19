@@ -1,4 +1,5 @@
 import TodoInput from "./TodoInput";
+import { v4 as uuidv4 } from "uuid";
 
 function Form({ setTodos, todos }) {
   function handleSubmit(e) {
@@ -10,6 +11,7 @@ function Form({ setTodos, todos }) {
     }
     obj.completed = false;
     obj.time = new Date().toLocaleString();
+    obj.id = uuidv4();
     setTodos((oldTodos) => [...oldTodos, obj]);
     e.target.reset();
   }

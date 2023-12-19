@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 function ThemeController() {
   const themes = [
     "default",
@@ -53,8 +54,9 @@ function ThemeController() {
         className="dropdown-content bg-base-300 rounded-box z-[1] h-[260px] w-52 overflow-y-auto p-2 shadow-2xl"
       >
         {themes.map((theme) => {
+          const id = uuidv4();
           return (
-            <li>
+            <li key={id}>
               <input
                 type="radio"
                 name="theme-dropdown"
