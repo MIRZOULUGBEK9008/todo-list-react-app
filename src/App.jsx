@@ -1,8 +1,12 @@
+import AsHeader from "./AsHeader";
+import MainContent from "./MainContent";
+
 function App() {
   return (
-    <h1 className="text-3xl font-bold underline hover:text-red-600">
-      Hello world!
-    </h1>
+    <>
+      <AsHeader />
+      <MainContent />
+    </>
   );
 }
 
